@@ -3,233 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al-Asala Store</title>
-    
-    <!-- TikTok Pixel Code Start -->
+    <meta name="theme-color" content="#000000">
+    <title>Al Asala Store</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- TikTok Pixel -->
     <script>
     !function (w, d, t) {
-      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+        w.TiktokAnalyticsObject=t;
+        var ttq=w[t]=w[t]||[];
+        ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+        ttq.setAndDefer=function(t,e){
+            t[e]=function(){
+                t.push([e].concat(Array.prototype.slice.call(arguments,0)))
+            }
+        };
+        for(var i=0;i<ttq.methods.length;i++)
+            ttq.setAndDefer(ttq,ttq.methods[i]);
 
+        ttq.instance=function(t){
+            for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)
+                ttq.setAndDefer(e,ttq.methods[n]);
+            return e
+        };
 
-      ttq.load('DATD91BC77U88MSOATKG');
-      ttq.page();
-      // إضافة حدث معاينة المحتوى تلقائياً عند فتح الصفحة
-      ttq.track('ViewContent');
+        ttq.load=function(e,n){
+            var r="https://analytics.tiktok.com/i18n/pixel/events.js";
+            ttq._i=ttq._i||{};
+            ttq._i[e]=[];
+            ttq._i[e]._u=r;
+            ttq._t=ttq._t||{};
+            ttq._t[e]=+new Date;
+            ttq._o=ttq._o||{};
+            ttq._o[e]=n||{};
+            n=d.createElement("script");
+            n.type="text/javascript";
+            n.async=!0;
+            n.src=r+"?sdkid="+e+"&lib="+t;
+            e=d.getElementsByTagName("script")[0];
+            e.parentNode.insertBefore(n,e)
+        };
+
+        ttq.load('DATD91BC77U88MSOATKG');
+        ttq.page();
     }(window, document, 'ttq');
+
+    /* 
+       الزر الأوسط والسفلي:
+       InitiateCheckout = هدف التحسين
+       Contact = للقياس
+    */
+
+    function trackMiddleClick() {
+        if (typeof ttq !== 'undefined') {
+            ttq.track('InitiateCheckout');
+            ttq.track('Contact');
+        }
+    }
+
+    function trackBottomClick() {
+        if (typeof ttq !== 'undefined') {
+            ttq.track('InitiateCheckout');
+            ttq.track('Contact');
+        }
+    }
     </script>
-    <!-- TikTok Pixel Code End -->
 
     <style>
-        :root {
-            --primary-color: #111827;
-            --whatsapp-color: #25d366; /* لون واتساب الشهير */
-            --whatsapp-hover: #1ebd5d;
-            --bg-color: #0b0f19; /* خلفية داكنة فاخرة */
-            --text-color: #9ca3af;
-            --card-bg: #1f2937; /* لون بطاقة فاخر وراقي */
-        }
-
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 50% 35%, rgba(212,175,55,0.12), transparent 35%),
+                linear-gradient(180deg, #050505 0%, #000000 100%);
+            color: #ffffff;
+            font-family: 'Tajawal', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 520px;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            padding: 25px 20px 100px;
+            position: relative;
         }
 
-        header {
-            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
-            color: #ffffff;
+        .brand {
             text-align: center;
-            padding: 3rem 1rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            border-bottom: 1px solid #374151;
+            margin-bottom: 35px;
         }
 
-        header h1 {
-            font-size: 2.4rem;
-            margin-bottom: 0.5rem;
+        .brand h1 {
+            font-size: 30px;
             font-weight: 800;
-            letter-spacing: -0.5px;
-            direction: ltr;
-            color: #f3f4f6;
+            letter-spacing: 1px;
+            color: #d4af37;
+            text-shadow: 0 0 18px rgba(212,175,55,0.25);
         }
 
-        header p {
-            font-size: 1.05rem;
-            color: #9ca3af;
-            max-width: 600px;
-            margin: 0 auto;
+        .brand p {
+            margin-top: 8px;
+            color: #bdbdbd;
+            font-size: 15px;
+            font-weight: 500;
         }
 
-        main {
-            flex: 1;
-            max-width: 700px;
-            width: 100%;
-            margin: 2.5rem auto;
-            padding: 0 1rem;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 2.5rem 1.5rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            margin-bottom: 1.5rem;
+        .hero {
             text-align: center;
-            border: 1px solid #374151;
+            margin-bottom: 30px;
         }
 
-        .card h2 {
-            font-size: 1.6rem;
-            color: #f3f4f6;
-            margin-bottom: 0.75rem;
-            font-weight: 700;
+        .hero-badge {
+            display: inline-block;
+            padding: 7px 18px;
+            border: 1px solid rgba(212,175,55,0.35);
+            border-radius: 30px;
+            color: #d4af37;
+            font-size: 13px;
+            margin-bottom: 15px;
+            background: rgba(212,175,55,0.05);
         }
 
-        .card p {
-            margin-bottom: 2rem;
-            color: #9ca3af;
-            font-size: 1.05rem;
+        .hero h2 {
+            font-size: 25px;
+            line-height: 1.5;
+            font-weight: 800;
         }
 
-        /* تنسيق الزر الأوسط الدائري الفاخر */
-        .whatsapp-circle-btn {
-            display: inline-flex;
-            align-items: center;
+        .hero p {
+            margin-top: 10px;
+            color: #aaa;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .cta-area {
+            display: flex;
             justify-content: center;
-            width: 85px;
-            height: 85px;
-            background-color: var(--whatsapp-color);
-            color: #ffffff;
+            align-items: center;
+            margin: 5px 0 30px;
+        }
+
+        .whatsapp-circle {
+            width: 145px;
+            height: 145px;
             border-radius: 50%;
-            box-shadow: 0 0 25px rgba(37, 211, 102, 0.5);
-            transition: all 0.3s ease-in-out;
-            cursor: pointer;
-            margin: 0 auto;
-            text-decoration: none;
-        }
-
-        .whatsapp-circle-btn:hover {
-            background-color: var(--whatsapp-hover);
-            transform: scale(1.1);
-            box-shadow: 0 0 35px rgba(37, 211, 102, 0.8);
-        }
-
-        .whatsapp-circle-btn svg {
-            width: 45px;
-            height: 45px;
-            fill: currentColor;
-        }
-
-        /* تنسيق الزر السفلي (المستطيل) */
-        .whatsapp-cta-btn {
-            display: inline-flex;
-            align-items: center;
+            border: 4px solid rgba(37,211,102,0.35);
+            background: linear-gradient(145deg, #25D366, #128C7E);
+            display: flex;
             justify-content: center;
-            gap: 12px;
-            background-color: var(--whatsapp-color);
-            color: #ffffff;
+            align-items: center;
             text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 700;
-            padding: 1.1rem 2rem;
-            border-radius: 50px;
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.55),
+                0 0 35px rgba(37,211,102,0.22),
+                inset 0 2px 5px rgba(255,255,255,0.25);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .whatsapp-circle:active {
+            transform: scale(0.94);
+            box-shadow:
+                0 7px 18px rgba(0,0,0,0.5),
+                inset 0 3px 7px rgba(0,0,0,0.2);
+        }
+
+        .whatsapp-icon {
+            width: 68px;
+            height: 68px;
+        }
+
+        .bottom-button {
             width: 100%;
-            max-width: 420px;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
-            transition: all 0.25s ease-in-out;
-            cursor: pointer;
+            max-width: 370px;
+            min-height: 62px;
+            border-radius: 18px;
+            background: linear-gradient(145deg, #25D366, #128C7E);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 800;
+            box-shadow:
+                0 12px 28px rgba(0,0,0,0.55),
+                0 0 25px rgba(37,211,102,0.16),
+                inset 0 2px 4px rgba(255,255,255,0.2);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
         }
 
-        .whatsapp-cta-btn:hover {
-            background-color: var(--whatsapp-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        .bottom-button:active {
+            transform: translateY(3px) scale(0.98);
+            box-shadow:
+                0 5px 12px rgba(0,0,0,0.5),
+                inset 0 3px 7px rgba(0,0,0,0.2);
         }
 
-        .whatsapp-cta-btn svg {
-            width: 28px;
-            height: 28px;
-            fill: currentColor;
-            flex-shrink: 0;
+        .bottom-icon {
+            width: 30px;
+            height: 30px;
         }
 
-        footer {
-            background-color: #111827;
-            color: #6b7280;
+        .note {
+            margin-top: 20px;
+            color: #777;
+            font-size: 12px;
             text-align: center;
-            padding: 2rem 1rem;
-            font-size: 0.9rem;
-            margin-top: auto;
-            border-top: 1px solid #374151;
         }
 
-        footer p {
-            margin-bottom: 1.25rem;
+        @media (max-width: 480px) {
+            .page {
+                padding-top: 20px;
+            }
+
+            .brand h1 {
+                font-size: 27px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            .whatsapp-circle {
+                width: 135px;
+                height: 135px;
+            }
+
+            .whatsapp-icon {
+                width: 63px;
+                height: 63px;
+            }
+
+            .bottom-button {
+                min-height: 58px;
+                font-size: 17px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- رأس الصفحة -->
-    <header>
-        <h1>Al-Asala Store</h1>
-        <p>نقدم لك أفضل المنتجات الأصلية بجودة عالية وأسعار تنافسية. اطلب الآن عبر الواتساب!</p>
-    </header>
+<div class="page">
 
-    <!-- محتوى الصفحة -->
-    <main>
-        <!-- القسم الأوسط مع هدف التحسين InitiateCheckout و ClickButton -->
-        <div class="card">
-            <h2>اطلب منتجك الآن بكل سهولة</h2>
-            <p>انقر على الزر أدناه للتواصل المباشر مع فريق المبيعات عبر الواتساب وإتمام طلبك فوراً.</p>
-            
-            <!-- الزر الأوسط الدائري -->
-            <a href="https://wa.me/972539764836" class="whatsapp-circle-btn" target="_blank" onclick="trackMiddleClick()">
-                <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-            </a>
-        </div>
-    </main>
+    <div class="brand">
+        <h1>Al Asala Store</h1>
+        <p>متجر الأصالة</p>
+    </div>
 
-    <!-- الفوتر مع الزر السفلي -->
-    <footer>
-        <p>&copy; 2026 Al-Asala Store. جميع الحقوق محفوظة.</p>
-        
-        <!-- زر الواتساب السفلي -->
-        <a href="https://wa.me/972539764836" class="whatsapp-cta-btn" target="_blank" onclick="trackBottomClick()" style="margin: 0 auto; max-width: 350px;">
-            <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-            تواصل عبر واتساب
+    <div class="hero">
+        <span class="hero-badge">خدمة العملاء الفورية</span>
+        <h2>تواصل معنا عبر واتساب</h2>
+        <p>اضغط على الزر للتواصل معنا مباشرة ومعرفة المزيد.</p>
+    </div>
+
+    <!-- الزر الأوسط -->
+    <div class="cta-area">
+        <a
+            class="whatsapp-circle"
+            href="https://wa.me/972539764836?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%B4%D8%A7%D9%87%D8%AF%D8%AA%20%D8%A5%D8%B9%D9%84%D8%A7%D9%86%D9%83%D9%85%20%D8%B9%D9%84%D9%89%20TikTok%20%D9%88%D8%A3%D9%88%D8%AF%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%A7%D9%84%D9%85%D8%B2%D9%8A%D8%AF."
+            target="_blank"
+            onclick="trackMiddleClick()"
+            aria-label="تواصل معنا عبر واتساب"
+        >
+            <svg class="whatsapp-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 3C8.82 3 3 8.82 3 16c0 2.29.59 4.44 1.7 6.33L3 29l6.84-1.63A12.94 12.94 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Z" fill="white"/>
+                <path d="M22.65 18.55c-.37-.19-2.18-1.08-2.52-1.2-.34-.13-.59-.19-.84.19-.25.37-.96 1.2-1.18 1.45-.22.25-.43.28-.8.09-.37-.19-1.57-.58-2.99-1.85-1.1-.98-1.85-2.2-2.07-2.57-.22-.37-.02-.57.17-.76.17-.17.37-.43.56-.65.19-.22.25-.37.37-.62.13-.25.06-.47-.03-.65-.09-.19-.84-2.01-1.15-2.75-.3-.72-.61-.62-.84-.63h-.71c-.25 0-.65.09-.99.47-.34.37-1.3 1.27-1.3 3.1s1.33 3.6 1.52 3.85c.19.25 2.62 4 6.35 5.6.89.38 1.59.61 2.13.78.9.29 1.72.25 2.37.15.72-.11 2.18-.89 2.49-1.75.31-.86.31-1.59.22-1.75-.09-.16-.34-.25-.71-.44Z" fill="#25D366"/>
+            </svg>
         </a>
-    </footer>
+    </div>
 
-    <!-- سكربتات تتبع الأحداث للبكسل -->
-    <script>
-        // الزر الأوسط: يرسل هدف التحسين InitiateCheckout بالإضافة إلى حدث النقر ClickButton
-        function trackMiddleClick() {
-            if (typeof ttq !== 'undefined') {
-                ttq.track('InitiateCheckout');
-                ttq.track('ClickButton');
-            }
-        }
+    <!-- الزر السفلي -->
+    <a
+        class="bottom-button"
+        href="https://wa.me/972539764836?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%B4%D8%A7%D9%87%D8%AF%D8%AA%20%D8%A5%D8%B9%D9%84%D8%A7%D9%86%D9%83%D9%85%20%D8%B9%D9%84%D9%89%20TikTok%20%D9%88%D8%A3%D9%88%D8%AF%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%A7%D9%84%D9%85%D8%B2%D9%8A%D8%AF."
+        target="_blank"
+        onclick="trackBottomClick()"
+    >
+        <svg class="bottom-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 3C8.82 3 3 8.82 3 16c0 2.29.59 4.44 1.7 6.33L3 29l6.84-1.63A12.94 12.94 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Z" fill="white"/>
+            <path d="M22.65 18.55c-.37-.19-2.18-1.08-2.52-1.2-.34-.13-.59-.19-.84.19-.25.37-.96 1.2-1.18 1.45-.22.25-.43.28-.8.09-.37-.19-1.57-.58-2.99-1.85-1.1-.98-1.85-2.2-2.07-2.57-.22-.37-.02-.57.17-.76.17-.17.37-.43.56-.65.19-.22.25-.37.37-.62.13-.25.06-.47-.03-.65-.09-.19-.84-2.01-1.15-2.75-.3-.72-.61-.62-.84-.63h-.71c-.25 0-.65.09-.99.47-.34.37-1.3 1.27-1.3 3.1s1.33 3.6 1.52 3.85c.19.25 2.62 4 6.35 5.6.89.38 1.59.61 2.13.78.9.29 1.72.25 2.37.15.72-.11 2.18-.89 2.49-1.75.31-.86.31-1.59.22-1.75-.09-.16-.34-.25-.71-.44Z" fill="#25D366"/>
+        </svg>
+        <span>راسلنا عبر واتساب</span>
+    </a>
 
-        // الزر السفلي: يرسل حدث Contact بالإضافة إلى حدث النقر ClickButton
-        function trackBottomClick() {
-            if (typeof ttq !== 'undefined') {
-                ttq.track('Contact');
-                ttq.track('ClickButton');
-            }
-        }
-    </script>
+    <div class="note">
+        نحن جاهزون لخدمتك
+    </div>
+
+</div>
+
 </body>
 </html>
